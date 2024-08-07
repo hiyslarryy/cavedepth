@@ -13,15 +13,15 @@ transform = transforms.Compose([
 ])
 
 # Paths for the test images and annotations
-test_image_dir = "/blue/mdjahiduislam/share/ImageSeg/my_ADE/images/testing"
-test_annotation_dir = "/blue/mdjahiduislam/share/ImageSeg/my_ADE/annotations/testing"
+test_image_dir = "/blue/mdjahiduislam/share/ImageSeg/my_ADE/images/test"
+test_annotation_dir = "/blue/mdjahiduislam/share/ImageSeg/my_ADE/annotations/test"
 save_path = "/blue/mdjahiduislam/junliang.liu/code/cavedepth/test_imgs"
-model_path = "/blue/mdjahiduislam/junliang.liu/code/cavedepth/checkpoints/model_epoch_30.pth"
+model_path = "/blue/mdjahiduislam/junliang.liu/code/cavedepth/checkpoints/model_epoch_80.pth"
 
 # Create the test loader
 image_filenames = os.listdir(test_image_dir)
 test_dataset = BaseUnderwaterDataset(test_image_dir, test_annotation_dir, image_filenames, transform)
-test_loader = DataLoader(test_dataset, batch_size=1, shuffle=False, num_workers=4)
+test_loader = DataLoader(test_dataset, batch_size=1, shuffle=False, num_workers=1)
 
 # Initialize the model
 num_classes = 13  # Number of classes in your dataset
